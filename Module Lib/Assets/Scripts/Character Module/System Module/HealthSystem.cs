@@ -9,19 +9,27 @@ public class HealthSystem : CharacterSystem
     protected override void Awake()
     {
         base.Awake();
-        maxHealth = character.health; 
-        currentHealth = maxHealth; 
-        isDead = false; 
+        maxHealth = character.health;
+        currentHealth = maxHealth;
+        isDead = false;
+    }
+
+    void OnEnable()
+    {
+        character.events.OnGetHit += ApplyDamage; // Subscribe to the OnAlerted event
+    }
+    void OnDisable()
+    {
+        character.events.OnGetHit -= ApplyDamage; // Unsubscribe from the OnAlerted event
     }
 
     // Method to apply damage
     public void ApplyDamage(int damage)
     {
         currentHealth -= damage; // Reduce current health by damage amount
-        character.events.OnHealthChange?.Invoke(currentHealth); // Trigger the damage event
         if (currentHealth <= 0)
         {
-            Die(); 
+            Die();
         }
     }
 
@@ -36,7 +44,8 @@ public class HealthSystem : CharacterSystem
         currentHealth = maxHealth; // Reset current health to max health
         isDead = false; // Reset the dead flag
     }
-    public void ReSpawn(int respawnHealth){
+    public void ReSpawn(int respawnHealth)
+    {
         currentHealth = respawnHealth; // Reset current health to max health
         isDead = false; // Reset the dead flag
     }
