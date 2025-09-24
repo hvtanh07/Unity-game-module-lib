@@ -5,14 +5,14 @@ public class HealthSystem : CharacterSystem
     [SerializeField]
     private int currentHealth; // Current health
     private int maxHealth; // Maximum health
-    bool isDead; // Flag to check if the character is dead
+    //bool isDead; // Flag to check if the character is dead
 
     protected override void Awake()
     {
         base.Awake();
         maxHealth = character.stats.health;
         currentHealth = maxHealth;
-        isDead = false;
+        character.isDead = false;
     }
     void OnEnable()
     {
@@ -51,7 +51,7 @@ public class HealthSystem : CharacterSystem
     }
     public void Heal(int healAmount)
     {
-        if (isDead) return; // If the character is dead, do nothing
+        if (character.isDead) return; // If the character is dead, do nothing
         int oldHealth = currentHealth;
         currentHealth += healAmount; // Increase current health by heal amount
 
@@ -70,17 +70,17 @@ public class HealthSystem : CharacterSystem
     private void Die()
     {
         character.events.OnCharacterDeath?.Invoke(); // Trigger the death event
-        isDead = true; // Set the dead flag to true
+        character.isDead = true; // Set the dead flag to true
     }
 
     public void ReSpawn()
     {
         currentHealth = maxHealth; // Reset current health to max health
-        isDead = false; // Reset the dead flag
+        character.isDead = false; // Reset the dead flag
     }
     public void ReSpawn(int respawnHealth)
     {
         currentHealth = respawnHealth; // Reset current health to max health
-        isDead = false; // Reset the dead flag
+        character.isDead = false; // Reset the dead flag
     }
 }

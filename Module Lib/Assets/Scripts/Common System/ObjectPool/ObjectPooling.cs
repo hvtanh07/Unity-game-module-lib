@@ -33,8 +33,8 @@ public class ObjectPooling : MonoBehaviour
             }
         }
     }
-    
-    public GameObject GetPooledObject(string tag)
+
+    GameObject GetPooledObject(string tag)
     {
         for (int i = 0; i < pooledObjects.Count; i++)
         {
@@ -55,6 +55,34 @@ public class ObjectPooling : MonoBehaviour
                     return obj;
                 }
             }
+        }
+        return null;
+    }
+
+    public void clearPool()
+    {
+        foreach (GameObject obj in pooledObjects)
+        {
+            Destroy(obj);
+        }
+        pooledObjects.Clear();
+    }
+    
+    /// <summary>
+    /// To return object to pool simply set it to inactive
+    /// </summary>
+    /// <param name="objectTag"></param>
+    /// <param name="location"></param>
+    /// <returns></returns>
+    public GameObject SpawnObject(string objectTag, Transform location, bool setActive = true)
+    {
+        GameObject obj = GetPooledObject(objectTag);
+        if (obj != null)
+        {
+            obj.transform.position = location.position;
+            obj.transform.rotation = location.rotation;
+            obj.SetActive(setActive);
+            return obj;
         }
         return null;
     }
