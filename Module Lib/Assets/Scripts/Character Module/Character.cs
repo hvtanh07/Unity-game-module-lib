@@ -5,8 +5,5 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     public CharacterEvent events;
-
-    [Header("Character Stats")]
-    public int health;
-    public float moveSpeed;
+    public CharacterScriptableStats stats;
 }
