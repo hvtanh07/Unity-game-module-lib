@@ -27,6 +27,7 @@ public class HealthSystem : CharacterSystem
 
     private void HandlePercentageDamage(float percent, DamageType dmgType)
     {
+        //scale damage by percent of any stats for example max health
         int damage = Mathf.RoundToInt(maxHealth * percent);
         //Add logic for armor or damage resistance 
         ApplyDamage(damage);
