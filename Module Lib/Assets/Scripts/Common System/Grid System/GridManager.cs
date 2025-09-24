@@ -6,6 +6,8 @@ public class GridManager : MonoBehaviour
     [SerializeField] private Tile tilePrefab;
     private Tile[,] _tiles;
 
+    public float _spacingVertical, _spacingHorizontal;
+
     void GenerateGrid()
     {
         _tiles = new Tile[_with, _height];
@@ -13,7 +15,11 @@ public class GridManager : MonoBehaviour
         {
             for (int y = 0; y < _height; y++)
             {
-                var spawnedTile = Instantiate(tilePrefab, new Vector3(x, y), Quaternion.identity);
+                Vector3 position = new Vector3(
+                    x * (_spacingHorizontal + tilePrefab.transform.localScale.x),
+                    y * (_spacingVertical + tilePrefab.transform.localScale.y),
+                    0);
+                var spawnedTile = Instantiate(tilePrefab, position, Quaternion.identity);
                 spawnedTile.name = $"Tile {x} {y}";
                 _tiles[x, y] = spawnedTile;
             }
