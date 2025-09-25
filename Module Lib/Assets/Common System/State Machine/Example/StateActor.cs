@@ -1,10 +1,9 @@
-using System;
 using UnityEngine;
 
 /// <summary>
 /// Example component that uses the StateManager to control a character's states.
 /// </summary>
-[RequireComponent(typeof(PlayerStateManager))]
+[RequireComponent(typeof(StateActorManager))]
 public class StateActor : MonoBehaviour
 {
     public StateManager<StateActor> StateManager { get; private set; }

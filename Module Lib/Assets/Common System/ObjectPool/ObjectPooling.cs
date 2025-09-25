@@ -71,8 +71,9 @@ public class ObjectPooling : MonoBehaviour
     /// <summary>
     /// To return object to pool simply set it to inactive
     /// </summary>
-    /// <param name="objectTag"></param>
-    /// <param name="location"></param>
+    /// <param name="objectTag">The tag of the object you want to spawn</param>
+    /// <param name="location">The transform location of where you want to spawn it</param>
+    /// /// <param name="setActive">Whether you want to set the object to active when spawned or set it yourself</param>
     /// <returns></returns>
     public GameObject SpawnObject(string objectTag, Transform location, bool setActive = true)
     {
