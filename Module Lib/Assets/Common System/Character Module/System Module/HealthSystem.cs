@@ -41,9 +41,8 @@ public class HealthSystem : CharacterSystem
     // Method to apply damage
     private void ApplyDamage(int damage)
     {
-        int oldHealth = currentHealth;
         currentHealth -= damage; // Reduce current health by damage amount
-        character.events.OnHealthChange?.Invoke(currentHealth - oldHealth); // Trigger the health change event
+        character.events.OnHealthChange?.Invoke(currentHealth); // Trigger the health change event
 
         if (currentHealth <= 0)
         {
@@ -53,7 +52,7 @@ public class HealthSystem : CharacterSystem
     public void Heal(int healAmount)
     {
         if (character.isDead) return; // If the character is dead, do nothing
-        int oldHealth = currentHealth;
+
         currentHealth += healAmount; // Increase current health by heal amount
 
         if (currentHealth > maxHealth)
@@ -61,7 +60,7 @@ public class HealthSystem : CharacterSystem
             currentHealth = maxHealth; // Cap current health to max health
         }
 
-        character.events.OnHealthChange?.Invoke(currentHealth - oldHealth); // Trigger the health change event
+        character.events.OnHealthChange?.Invoke(currentHealth); // Trigger the health change event
     }
     public void HealByPercent(float percent)
     {
@@ -78,10 +77,12 @@ public class HealthSystem : CharacterSystem
     {
         currentHealth = maxHealth; // Reset current health to max health
         character.isDead = false; // Reset the dead flag
+        character.events.OnHealthChange?.Invoke(currentHealth);
     }
     public void ReSpawn(int respawnHealth)
     {
         currentHealth = respawnHealth; // Reset current health to max health
         character.isDead = false; // Reset the dead flag
+        character.events.OnHealthChange?.Invoke(currentHealth);
     }
 }

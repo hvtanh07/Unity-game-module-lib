@@ -1,9 +1,9 @@
 using UnityEngine;
 
-[RequireComponent(typeof(StateMachineManagerGameManager))]
-public class StateMachineGameManager : MonoBehaviour
+[RequireComponent(typeof(StateMachineManagerGM))]
+public class GameManagerMStateMachine : MonoBehaviour
 {
-    public static StateMachineGameManager Instance;
+    public static GameManagerMStateMachine Instance;
 
     void Awake()
     {
@@ -18,7 +18,7 @@ public class StateMachineGameManager : MonoBehaviour
             return;
         }
         // Get the StateManager component.
-        StateManager = GetComponent<StateManager<StateMachineGameManager>>();
+        StateManager = GetComponent<StateManager<GameManagerMStateMachine>>();
 
         // Initialize the StateManager with this component as the owner.
         StateManager.Initialize(this);
@@ -28,7 +28,7 @@ public class StateMachineGameManager : MonoBehaviour
         StateManager.AddState(new GameplayState());
         StateManager.AddState(new GameOverState());
     }
-    public StateManager<StateMachineGameManager> StateManager { get; private set; }
+    public StateManager<GameManagerMStateMachine> StateManager { get; private set; }
 
     // Other player components that states might need to control.
     public RectTransform gameOverPanel;

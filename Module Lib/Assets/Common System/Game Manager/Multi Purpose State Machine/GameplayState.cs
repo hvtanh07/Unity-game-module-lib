@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class GameplayState : IState<StateMachineGameManager>
+public class GameplayState : IState<GameManagerMStateMachine>
 {
-    private StateMachineGameManager _owner;
-    public void OnEnter(StateMachineGameManager owner)
+    private GameManagerMStateMachine _owner;
+    public void OnEnter(GameManagerMStateMachine owner)
     {
         _owner = owner;
         Debug.Log("Entering Gameplay State");
@@ -15,8 +15,7 @@ public class GameplayState : IState<StateMachineGameManager>
         // Gameplay logic here
 
         // If player die or fail some condition, transition to GameOverState
-        if(false)
-        _owner.StateManager.ChangeState<GameOverState>();
+        //_owner.StateManager.ChangeState<GameOverState>();
     }
 
     public void OnExit()
