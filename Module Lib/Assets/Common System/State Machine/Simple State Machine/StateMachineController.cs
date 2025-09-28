@@ -17,13 +17,13 @@ public class StateMachineController : MonoBehaviour
     void Update()
     {
         // Continuously run the current state's update logic
-        currentState?.OnUpdate(this);
+        currentState?.OnUpdate();
     }
 
     public void ChangeState(IState newState)
     {
         // 1. Perform cleanup on the old state
-        currentState?.OnExit(this);
+        currentState?.OnExit();
 
         // 2. Set the new state
         currentState = newState;

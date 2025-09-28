@@ -6,8 +6,8 @@ public interface IState
     void OnEnter(StateMachineController stateMachine); 
     
     // Called every frame while the state is active (like Update)
-    void OnUpdate(StateMachineController stateMachine); 
+    void OnUpdate(); 
     
     // Called once when exiting the state
-    void OnExit(StateMachineController stateMachine); 
+    void OnExit(); 
 }
