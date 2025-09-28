@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(StateActorManager))]
 public class StateActor : MonoBehaviour
 {
-    public StateManager<StateActor> StateManager { get; private set; }
+    public MStateManager<StateActor> StateManager { get; private set; }
 
     // Other player components that states might need to control.
     public Rigidbody rb;
@@ -18,7 +18,7 @@ public class StateActor : MonoBehaviour
     private void Awake()
     {
         // Get the StateManager component.
-        StateManager = GetComponent<StateManager<StateActor>>();
+        StateManager = GetComponent<MStateManager<StateActor>>();
 
         // Initialize the StateManager with this component as the owner.
         StateManager.Initialize(this);

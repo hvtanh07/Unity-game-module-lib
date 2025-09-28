@@ -1,7 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class GameManagerSimpleStateMachine : MonoBehaviour
+public class GameManagerSSM : MonoBehaviour
 {
     public StateManagerGM stateMachine;
     // Start is called once before the first execution of Update after the MonoBehaviour is created

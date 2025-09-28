@@ -5,7 +5,7 @@ using UnityEngine;
 /// The base interface for all states in the state machine. "T" will be replaced by the context type (e.g., PlayerController, UIManager).
 /// </summary>
 /// <typeparam name="T">The type of the context object this state belongs to.</typeparam>
-public interface IState<T>
+public interface MIState<T>
 {
     /// <summary>
     /// Called once when the state is first entered.

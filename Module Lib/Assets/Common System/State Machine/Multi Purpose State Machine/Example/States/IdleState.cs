@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class IdleState : IState<StateActor>
+public class IdleState : MIState<StateActor>
 {
     private StateActor _owner;
     public void OnEnter(StateActor owner)

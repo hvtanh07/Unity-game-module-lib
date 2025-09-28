@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class GameplayState : IState<GameManagerMStateMachine>
+public class GameplayState : MIState<GameManagerMSM>
 {
-    private GameManagerMStateMachine _owner;
-    public void OnEnter(GameManagerMStateMachine owner)
+    private GameManagerMSM _owner;
+    public void OnEnter(GameManagerMSM owner)
     {
         _owner = owner;
         Debug.Log("Entering Gameplay State");

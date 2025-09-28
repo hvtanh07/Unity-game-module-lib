@@ -2,15 +2,18 @@ using UnityEngine;
 
 public class NewGameSimpleState : IStateGM
 {
-    
-    public void Enter()
+    StateManagerGM owner;
+    public void Enter(StateManagerGM stateManager)
     {
+        owner = stateManager;
         Debug.Log("Entering New Game Simple State");
         // code that runs when we first enter the state
     }
     public void Execute()
     {
         // per-frame logic, include condition to transition to a new state
+        
+        //owner.TransitionTo(stateManager.NextState());
     }
     public void Exit()
     {

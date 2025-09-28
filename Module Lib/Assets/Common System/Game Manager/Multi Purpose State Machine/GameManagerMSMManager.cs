@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class StateMachineManagerGM : StateManager<GameManagerMStateMachine>
+public class GameManagerMSMManager : MStateManager<GameManagerMSM>
 {
     // This class can be left completely empty.
     // It inherits all the functionality from StateManager<StateMachineGameManager>.

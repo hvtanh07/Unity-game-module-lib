@@ -2,7 +2,7 @@ using UnityEngine;
 
 public interface IStateGM
 {
-    public void Enter()
+    public void Enter(StateManagerGM stateManager)
     {
         // code that runs when we first enter the state
     }

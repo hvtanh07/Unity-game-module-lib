@@ -8,16 +8,16 @@ using UnityEngine;
 /// A generic, multipurpose State Machine controller.
 /// </summary>
 /// <typeparam name="T">The context type (e.g., PlayerController, UIManager).</typeparam>
-public class StateManager<T> : MonoBehaviour where T : MonoBehaviour
+public class MStateManager<T> : MonoBehaviour where T : MonoBehaviour
 {
     // The context this state machine operates on.
     public T Owner { get; private set; }
 
     // Dictionary to store all available states, mapped by their type.
-    private Dictionary<Type, IState<T>> _states = new Dictionary<Type, IState<T>>();
+    private Dictionary<Type, MIState<T>> _states = new Dictionary<Type, MIState<T>>();
     
     // The currently active state.
-    public IState<T> CurrentState { get; private set; }
+    public MIState<T> CurrentState { get; private set; }
 
     /// <summary>
     /// Initializes the StateManager with its owner/context.
@@ -30,7 +30,7 @@ public class StateManager<T> : MonoBehaviour where T : MonoBehaviour
     /// <summary>
     /// Adds a state to the state machine's dictionary.
     /// </summary>
-    public void AddState(IState<T> state)
+    public void AddState(MIState<T> state)
     {
         _states.Add(state.GetType(), state);
     }
@@ -45,15 +45,15 @@ public class StateManager<T> : MonoBehaviour where T : MonoBehaviour
     /// <summary>
     /// Transitions the state machine to a new state.
     /// </summary>
-    /// <typeparam name="TState">The type of the state to transition to.</typeparam>
-    public void ChangeState<TState>() where TState : IState<T>
+    /// <typeparam name="NState">The type of the New state to transition to.</typeparam>
+    public void ChangeState<NState>() where NState : MIState<T>
     {
         // Exit the current state, if there is one.
         CurrentState?.OnExit();
         
         // Find the new state in the dictionary.
-        var newStateType = typeof(TState);
-        if (_states.TryGetValue(newStateType, out IState<T> newState))
+        var newStateType = typeof(NState);
+        if (_states.TryGetValue(newStateType, out MIState<T> newState))
         {
             // Set the new state and call its entry method.
             CurrentState = newState;

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class WalkingState : IState<StateActor>
+public class WalkingState : MIState<StateActor>
 {
     private StateActor _owner;
 

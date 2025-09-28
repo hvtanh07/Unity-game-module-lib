@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class GameOverState : IState<GameManagerMStateMachine>
+public class GameOverState : MIState<GameManagerMSM>
 {
-    private GameManagerMStateMachine _owner;
-    public void OnEnter(GameManagerMStateMachine owner)
+    private GameManagerMSM _owner;
+    public void OnEnter(GameManagerMSM owner)
     {
         _owner = owner;
         Debug.Log("Entering Game Over State");

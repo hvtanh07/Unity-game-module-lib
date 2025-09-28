@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class NewGameState : IState<GameManagerMStateMachine>
+public class NewGameState : MIState<GameManagerMSM>
 {
-    private GameManagerMStateMachine _owner;
-    public void OnEnter(GameManagerMStateMachine owner)
+    private GameManagerMSM _owner;
+    public void OnEnter(GameManagerMSM owner)
     {
         _owner = owner;
         Debug.Log("Entering New Game State");
