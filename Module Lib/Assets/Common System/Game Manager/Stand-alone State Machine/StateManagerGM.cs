@@ -1,15 +1,10 @@
-using UnityEngine;
 using System;
 
 [Serializable]
 public class StateManagerGM
 {
     public IStateGM CurrentState { get; private set; }
-    public int score { get; set; }
-    public int lives { get; set; }
-    public NewGameSimpleState newGameState;
-    //public gameplayState gameplayState;
-    //public gameOverState gameOverState;
+
     public void Initialize(IStateGM startingState)
     {
         CurrentState = startingState;
@@ -29,10 +24,4 @@ public class StateManagerGM
         }
     }
 
-    public StateManagerGM()
-    {
-        this.newGameState = new NewGameSimpleState();
-        //this.gameplayState = new gameplayState();
-        //this.gameOverState = new gameOverState();
-    }
 }

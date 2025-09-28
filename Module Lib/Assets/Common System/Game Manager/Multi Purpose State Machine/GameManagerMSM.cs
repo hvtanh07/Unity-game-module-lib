@@ -36,7 +36,15 @@ public class GameManagerMSM : MonoBehaviour
 
     public int Score { get; private set; }
     public int Lives { get; private set; } = 3;
+    public bool IsGameOver { get; private set; }
 
+    public void AddScore(int amount)
+    {
+        if (IsGameOver) return;
+        Score += amount;
+        // Optionally, notify listeners about score change
+    }
+    
     private void Start()
     {
         // Set the initial state.

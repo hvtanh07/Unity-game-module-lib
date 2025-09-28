@@ -24,6 +24,5 @@ public class Observer : MonoBehaviour
     {
         Debug.Log("Health Changed" + health);
         GameManager.Instance.AddScore(10);
-        
     }
 }
