@@ -22,7 +22,5 @@ public class NewGameState : MIState<GameManagerMSM>
     {
         Debug.Log("Exiting New Game State");
         // code that runs when we exit the state
-
-        _owner.NewGamePanel.gameObject.SetActive(false);
     }
 }

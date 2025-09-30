@@ -31,8 +31,6 @@ public class GameManagerMSM : MonoBehaviour
     public MStateManager<GameManagerMSM> StateManager { get; private set; }
 
     // Other player components that states might need to control.
-    public RectTransform gameOverPanel;
-    public RectTransform NewGamePanel;
 
     public int Score { get; private set; }
     public int Lives { get; private set; } = 3;

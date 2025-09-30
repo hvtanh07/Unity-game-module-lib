@@ -7,7 +7,6 @@ public class Observer : MonoBehaviour
     void Start()
     {
         character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
-
     }
     void OnEnable()
     {
@@ -23,6 +22,5 @@ public class Observer : MonoBehaviour
     void UpdateHealthBar(int health)
     {
         Debug.Log("Health Changed" + health);
-        GameManager.Instance.AddScore(10);
     }
 }

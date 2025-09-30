@@ -8,8 +8,6 @@ public class GameOverState : MIState<GameManagerMSM>
         _owner = owner;
         Debug.Log("Entering Game Over State");
         // Logic that runs when we enter the state
-
-        _owner.gameOverPanel.gameObject.SetActive(true);
     }
     
     public void OnUpdate()
@@ -23,7 +21,5 @@ public class GameOverState : MIState<GameManagerMSM>
     {
         Debug.Log("Exiting Game Over State");
         // code that runs when we exit the state
-
-        _owner.gameOverPanel.gameObject.SetActive(false);
     }
 }
